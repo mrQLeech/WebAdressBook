@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebAdressBook.Models.AdressBook>
+
+
+@{
+    ViewBag.Title = "Main";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subdivision)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatePosition)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subdivision)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatePosition)
+        </td>
+       
+    </tr>
+}
+
+</table>
