@@ -26,5 +26,6 @@ namespace WebAdressBook.Models
         }
     
         public DbSet<AdressBook> AdressBook { get; set; }
+       
     }
 }

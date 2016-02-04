@@ -1,72 +1,42 @@
-﻿@model WebAdressBook.Models.AdressBook
+﻿@model WebAdressBook.Models.User
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Login";
 }
 
-<h2>Create</h2>
+<h2>Login</h2>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>AdressBook</h4>
+        <h4>User</h4>
         <hr />
-        @Html.ValidationSummary(true)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FullName)
-                @Html.ValidationMessageFor(model => model.FullName)
+                @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control", @id = "loginBox"} })
+                @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Phone)
-                @Html.ValidationMessageFor(model => model.Phone)
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @id="passBox" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EMail, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EMail)
-                @Html.ValidationMessageFor(model => model.EMail)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Subdivision, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Subdivision)
-                @Html.ValidationMessageFor(model => model.Subdivision)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.StatePosition, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.StatePosition)
-                @Html.ValidationMessageFor(model => model.StatePosition)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-10" style="display:none;">
+                <input type="submit" value="Войти" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

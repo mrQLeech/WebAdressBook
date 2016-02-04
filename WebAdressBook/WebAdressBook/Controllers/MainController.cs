@@ -17,7 +17,7 @@ namespace WebAdressBook.Controllers
         // GET: Main
         public ActionResult Main()
         {
-            return View(db.AdressBook.ToList());
+            return View(db.AdressBook.ToList().OrderBy(x => x.Subdivision));
         }
 
         // GET: Main/Details/5
@@ -71,6 +71,21 @@ namespace WebAdressBook.Controllers
                 return HttpNotFound();
             }
             return View(adressBook);
+        }
+
+
+        // POST: Main/Login
+        [HttpPost]       
+        public ActionResult Login(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                if (user.Login == "test1" && user.Password == "test2")
+                {
+                    return RedirectToAction("Main");
+                }                
+            }
+            return View();
         }
 
         // POST: Main/Edit/5
