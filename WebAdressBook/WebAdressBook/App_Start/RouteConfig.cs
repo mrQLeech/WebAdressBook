@@ -16,8 +16,15 @@ namespace WebAdressBook
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Main", action = "Main", id = UrlParameter.Optional }
+                defaults: new { controller = "AdressBooks",  id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Login",
+                url: "{action}",
+                defaults: new { controller = "AdressBooks", action="Login" }
+            );
+
         }
     }
 }

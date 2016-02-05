@@ -15,7 +15,7 @@
     <AssemblyName>WebAdressBook</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -143,30 +143,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MainController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\AdressBooksController.cs" />
+    <Compile Include="Controllers\AdressBooksWebApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AdressBook.cs">
-      <DependentUpon>AdressBookModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AdressBookModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdressBookModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AdressBookModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdressBookModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AdressBookModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdressBookModel.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\AdressBook.cs" />
+    <Compile Include="Models\AdressModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -177,17 +160,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\AdressBookModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AdressBookModel.edmx</DependentUpon>
-      <LastGenOutput>AdressBookModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\AdressBookModel.edmx.sql" />
-    <Content Include="Models\AdressBookModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AdressBookModel.edmx</DependentUpon>
-      <LastGenOutput>AdressBookModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -201,13 +173,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\AdressBookModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AdressBookModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\AdressBookModel.edmx.diagram">
-      <DependentUpon>AdressBookModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\loginScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -229,12 +194,12 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Main\Main.cshtml" />
-    <Content Include="Views\Main\Create.cshtml" />
+    <Content Include="Views\Shared\Create.cshtml" />
+    <Content Include="Views\AdressBooks\Main.cshtml" />
+    <Content Include="Views\AdressBooks\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -264,7 +229,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51540</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51540/</IISUrl>
+          <IISUrl>http://localhost/WebAdressBook</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
