@@ -2,12 +2,8 @@
 
 @{
     Layout = null;
-}
-
-@{
     ViewBag.Title = "Login";
 }
-
 
 
 <!DOCTYPE html>
@@ -27,7 +23,10 @@
         {
            
             <div class="form-horizontal">
-                <h4>User</h4>
+                <div class="container" style="margin-left: 70px;">
+                    <h4>Ввод учетных данных</h4>
+                </div>
+               
                 <hr />
                 
                 <div class="form-group">
@@ -49,6 +48,11 @@
                         <input type="submit" value="Войти" class="btn btn-default" />
                     </div>
                 </div>
+                @if (ViewBag.error != "")
+                {
+                    <div class="" id="wrongAuth"><p>@ViewBag.error</p></div>
+                }
+                
             </div>
         }
     </div>

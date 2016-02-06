@@ -18,14 +18,25 @@ namespace WebAdressBook.Controllers
 
         // GET: api/AdressBooksWebApi/5
         [ResponseType(typeof(AdressBook))]
-        public IHttpActionResult GetAdressBook(int id)
+        public HttpResponseMessage GetAdressBook(int id)
         {
             AdressBook adressBook = db.AdressBooks.Find(id);
             if (adressBook == null)
             {
-                return NotFound();
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Item not found");
             }
-            return Ok(adressBook);
+            return Request.CreateResponse(HttpStatusCode.OK, adressBook);
+        }
+
+        [HttpPost]
+        public HttpResponseMessage GetAdressBookItem(AbID abID)
+        {
+            AdressBook adressBook = db.AdressBooks.Find(abID.abID);
+            if (adressBook == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Item not found");
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, adressBook);
         }
 
         protected override void Dispose(bool disposing)

@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "AbID";
+}
+
+<h2>AbID</h2>
+
+<div class="form-group container">
+   
+    <div class="col-md-10">
+        <label for="idInput">Идентификатор сотрудника</label>
+        <input type="number" min="0" name="Идентификатор базы данных" id="idInput" class="list-inline" style="width: 50px;" />
+        <input type="submit" value="Показать" class="btn btn-default" id="idSubmit" disabled=""/>
+    </div>
+</div>
+
+<div class="container" id="responseContainer">
+
+</div>
+
+
+@Scripts.Render("~/Scripts/AbIDScript.js")
