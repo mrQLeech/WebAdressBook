@@ -34,7 +34,7 @@ namespace WebAdressBook.Controllers
             AdressBook adressBook = db.AdressBooks.Find(abID.abID);
             if (adressBook == null)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Item not found");
+                return Request.CreateResponse(HttpStatusCode.NotFound, new KeyNotFoundException("Item with id = " + abID.abID + " not found"));
             }
             return Request.CreateResponse(HttpStatusCode.OK, adressBook);
         }

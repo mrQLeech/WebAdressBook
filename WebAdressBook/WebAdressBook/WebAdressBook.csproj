@@ -154,6 +154,7 @@
     <Compile Include="Models\AbID.cs" />
     <Compile Include="Models\AdressBook.cs" />
     <Compile Include="Models\AdressModel.cs" />
+    <Compile Include="Models\Error.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
